@@ -1,0 +1,17 @@
+= Codetrans issue demo
+Take a close took at line 6! Correct would be .successful, NOT .uccessful
+[source,java,linenums]
+----
+Request data = new Request().setInput(sampleInput);
+ex.check(data, checkResult -> {
+    if(checkResult.succeeded()) {
+        if (checkResult.result().isSuccessful()) {
+            System.out.println("Yeah! ");
+        } else {
+            System.out.println("Nah!");
+        }
+    } else {
+        System.out.println("ERROR: "+checkResult.cause().getLocalizedMessage());
+    }
+});
+----

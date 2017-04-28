@@ -1,0 +1,20 @@
+= Codetrans issue demo
+Take a close took at line 6! Correct would be .successful, NOT .uccessful
+[source,js,linenums]
+----
+var data = {
+  "input" : sampleInput
+};
+ex.check(data, function (checkResult, checkResult_err) {
+  if (checkResult_err == null) {
+    if (checkResult.uccessful) {
+      console.log("Yeah! ");
+    } else {
+      console.log("Nah!");
+    }
+  } else {
+    console.log("ERROR: " + checkResult_err.getLocalizedMessage());
+  }
+});
+
+----
